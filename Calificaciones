@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class CalificacionesSimple {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Declaración de variables
+        String[] materias = {"Matemáticas", "Programación", "Química"};
+        int[][] calificaciones = new int[materias.length][3]; // Tres unidades por materia
+
+        // Pedir calificaciones
+        System.out.println("Ingresa las calificaciones por materia:");
+        for (int i = 0; i < materias.length; i++) {
+            System.out.println("Materia: " + materias[i]);
+            for (int j = 0; j < 3; j++) {
+                System.out.print("  Unidad " + (j + 1) + ": ");
+                calificaciones[i][j] = sc.nextInt();
+            }
+        }
+
+        // Imprimir calificaciones y calcular promedio
+        System.out.println("\nCalificaciones ingresadas y promedio:");
+        for (int i = 0; i < materias.length; i++) {
+            int suma = 0;
+            System.out.print(materias[i] + ": ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(calificaciones[i][j] + " ");
+                suma += calificaciones[i][j];
+            }
+            float promedio = suma / 3.0f;
+            System.out.printf(" | Promedio: %.2f\n", promedio);
+        }
+
+        sc.close();
+    }
+}
